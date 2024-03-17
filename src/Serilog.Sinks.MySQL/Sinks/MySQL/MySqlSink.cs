@@ -129,7 +129,7 @@ namespace Serilog.Sinks.MySQL
 
                             insertCommand.Parameters["@level"].Value     = logEvent.Level.ToString();
                             insertCommand.Parameters["@template"].Value = logEvent.MessageTemplate.ToString();
-                            insertCommand.Parameters["@msg"].Value      = logMessageString;
+                            insertCommand.Parameters["@msg"].Value      = logMessageString.ToString();
                             insertCommand.Parameters["@ex"].Value       = logEvent.Exception?.ToString();
                             insertCommand.Parameters["@prop"].Value = logEvent.Properties.Count > 0
                                 ? logEvent.Properties.Json()
